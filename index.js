@@ -8,7 +8,28 @@ app.set('views', "./views");
 app.use(express.static(__dirname + '/views'));
 
 app.get('/', (req, res) => {
-    res.render("index");
+    let posts = [
+        {
+            title: 'Man must explore, and this is exploration at its greatest',
+            subTitle: 'Problems look mighty small from 150 miles up',
+            author: 'Start Bootstrap',
+            postDate: 'on September 24, 2021'
+        },
+        {
+            title: 'Man must explore, and this is exploration at its greatest',
+            subTitle: 'Problems look mighty small from 150 miles up',
+            author: 'Start Bootstrap',
+            postDate: 'on September 24, 2021'
+        },
+        {
+            title: 'Man must explore, and this is exploration at its greatest',
+            subTitle: 'Problems look mighty small from 150 miles up',
+            author: 'Start Bootstrap',
+            postDate: 'on September 24, 2021'
+        }
+    ]
+
+    res.render("index", {posts: posts});
 });
 
 app.get('/contact', (req, res) => {
@@ -25,7 +46,6 @@ app.get('/post', (req, res) => {
 
 // Use static site
 //app.use(express.static('./vu'));
-
 app.listen(port, () => {
     console.log(`App is listening at port ${port}`);
 });
